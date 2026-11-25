@@ -1,0 +1,192 @@
+html, body, #paineis { margin: 0; height: 100%; overflow: hidden; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+dialog {
+    border: none;
+    box-shadow: 0 0 50px rgb(0 0 0 / 50%);
+    border-radius: 25px;
+    font-size: 1.1em;
+    transition: all .5s;
+    @starting-style {
+        scale: 0;
+        opacity: 0;
+    }
+}
+
+dialog input, dialog button {
+    font-size: 1em;
+}
+
+dialog input {
+    border: none;
+    background: #c7c7c7;
+    border-radius: 999px;
+    padding-inline: 0px;
+    padding-left: 5px;
+    outline: none;
+}
+
+dialog button {
+    border-radius: 999px;
+    outline: none;
+    border: 1px solid #818181;
+}
+
+h1 {
+    user-select: none;
+}
+
+#paineis {
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+}
+
+#painel-jogador {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: all 1s;
+} 
+
+#painel-jogador h1, #painel-jogador h2 {
+    margin: 0px;
+    user-select: none;
+}
+
+.slideEmoji {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    animation-name: slideScreen;
+    animation-duration: 1s;
+    font-size: max(30vw,30vh);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#botoes-sinais {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+#botoes-sinais button {
+    background: rgba(0,0,0,0.25);
+    outline: none;
+    border: none;
+    font-size: 1em;
+    padding: 15px;
+    transition: all .1s;
+    user-select: none;
+}
+
+#botoes-sinais button:hover {
+    cursor: pointer;
+    background: none;
+    font-size: 1.1em;
+}
+
+.boing {
+    animation-name: boing;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+}
+
+#titulo-condicao {
+    position: fixed;
+    top: 10vh;
+    left: 50vw;
+    text-align: center;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 3vw;
+    background: white;
+    padding: 25px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 0 50px rgb(0 0 0 / 50%);
+    transition: all .5s;
+    @starting-style { opacity: 0; transform: translateY(-100%) translateX(-50%);}
+}
+
+#reiniciar-bt {
+    position: fixed;
+    text-align: center;
+    top: 75vh;
+    left: 50vw;
+    transform: translateY(-50%) translateX(-50%);
+    transition: all .5s;
+    background: white;
+    outline: none;
+    border: none;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 999px;
+    box-shadow: 0 0 50px rgb(0 0 0 / 50%);
+    @starting-style { opacity: 0; transform: translateY(-100%) translateX(-50%);}
+}
+
+#reiniciar-bt:hover {
+    cursor: pointer;
+    font-size: 2.1em;
+    box-shadow: 0 0 30px rgb(0 0 0 / 100%);
+}
+
+.vencedor {
+    background-color: #26e41b;
+    color: black;
+}
+
+.perdedor {
+    background-color: #e41b26;
+    color: #ffffff;
+}
+
+.empate {
+    background-color: gray;
+    color: white;
+}
+
+@keyframes boing {
+    0% {
+        scale: 0;
+    }
+    25% {
+        scale: 1;
+    }
+    75% {
+        scale: 1.1;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes slideScreen {
+    0% {
+        top:100vh;
+        opacity: 0%;
+    }
+    50% {
+        opacity: 100%;
+    }
+    100% {
+        top: 0vh;
+        opacity: 0%;
+    }
+}
+
+#creditos {
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-250%);
+    z-index: 1000;
+    opacity: 50%;
+}
